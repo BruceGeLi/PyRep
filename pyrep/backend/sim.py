@@ -1029,14 +1029,14 @@ def simGetShapeMesh(shapeHandle):
                     for i in range(outVerticiesCount[0])]
     retIndices = [outIndices[0][i]
                     for i in range(outIndicesCount[0])]
-    outNormals = [outIndices[0][i]
+    retNormals = [outNormals[0][i]
                   for i in range(outIndicesCount[0] * 3)]
 
     simReleaseBuffer(ffi.cast('char *', outVerticies[0]))
     simReleaseBuffer(ffi.cast('char *', outIndices[0]))
     simReleaseBuffer(ffi.cast('char *', outNormals[0]))
 
-    return retVerticies, retIndices, outNormals
+    return retVerticies, retIndices, retNormals
 
 
 def simGetShapeViz(shapeHandle, index):
